@@ -1,3 +1,4 @@
+import Navigation from "@/components/shared/Navigation";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -23,7 +24,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Navigation />
+
+        <main>{children}</main>
       </body>
     </html>
   );
