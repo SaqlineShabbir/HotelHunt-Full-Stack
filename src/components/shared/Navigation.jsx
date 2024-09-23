@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { auth } from "../../../auth";
 import logo from "../../assets/green-house-logo.png";
-const Navigation = () => {
+const Navigation = async () => {
+  const session = await auth();
   return (
     <nav className="max-w-7xl flex mx-auto justify-between px-4 py-4 fixed top-0 w-full left-0 right-0 z-50">
       <Link className="flex justify-center items-center" href="/">
@@ -23,12 +25,23 @@ const Navigation = () => {
           <Link href="/bookings">Bookings</Link>
         </li>
         <li>
-          <Link
-            href="/login"
-            className="bg-green-300 px-6 py-3 text-white font-bold rounded-md"
-          >
-            Login
-          </Link>
+          {session?.user ? (
+            <div>
+              <Image
+                className=" border-2 border-green-400 rounded-full"
+                src={session?.user?.image}
+                height={40}
+                width={40}
+              />
+            </div>
+          ) : (
+            <Link
+              href="/login"
+              className="bg-green-300 px-6 py-3 text-white font-bold rounded-md"
+            >
+              Login
+            </Link>
+          )}
         </li>
       </ul>
     </nav>
