@@ -1,11 +1,12 @@
-export const HotelInfo = ({ fromListPage }) => {
+export const HotelInfo = ({ fromListPage, hotel }) => {
+  console.log("herrrrrrrrrrrrrrrr", hotel);
   return (
     <>
       <div className={fromListPage ? "flex-1" : "flex-1 container"}>
         <h2
           className={fromListPage ? "font-bold text-lg" : "font-bold text-2xl"}
         >
-          Effotel By Sayaji Jaipur
+          {hotel?.name}
         </h2>
         <p>📍 Kolkata</p>
         <div className="flex gap-2 items-center my-4">
