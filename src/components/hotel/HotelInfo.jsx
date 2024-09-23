@@ -1,5 +1,4 @@
 export const HotelInfo = ({ fromListPage, hotel }) => {
-  console.log("herrrrrrrrrrrrrrrr", hotel);
   return (
     <>
       <div className={fromListPage ? "flex-1" : "flex-1 container"}>
@@ -8,23 +7,34 @@ export const HotelInfo = ({ fromListPage, hotel }) => {
         >
           {hotel?.name}
         </h2>
-        <p>📍 Kolkata</p>
+        <p>📍 {hotel?.city}</p>
         <div className="flex gap-2 items-center my-4">
-          <div className="bg-primary w-[35px] h-[35px] rounded-sm text-white grid place-items-center font-bold">
+          <div className="bg-green-400 w-[35px] h-[35px] rounded-sm text-white grid place-items-center font-bold">
             5.3
           </div>
           <span className="font-medium">Very Good</span>
           <span>232 Reviews</span>
         </div>
+        <div>
+          <span className="border text-yellow-300 font-bold rounded p-1">
+            {hotel?.propertyCategory} Star Property
+          </span>
+        </div>
       </div>
 
       <div className="flex flex-col gap-2 items-end justify-center">
-        <h2 className="text-2xl font-bold text-right">$124/night</h2>
-        <p className=" text-right">Per Night for 4 Rooms</p>
+        <h2 className="text-2xl font-bold text-right">
+          ${(hotel?.highRate + hotel?.lowRate) / 2}
+        </h2>
+        <p className=" text-right">Per Night for 1 Rooms</p>
         {fromListPage ? (
-          <button className="btn-primary ">Details</button>
+          <button className="bg-green-400 text-white rounded-md block  font-bold  hover:shadow active:scale-95 transition-all mt-4 px-3 py-2">
+            Details
+          </button>
         ) : (
-          <button className="btn-primary ">Book</button>
+          <button className="bg-green-400 px-3 py-2 rounded-md block  font-bold  hover:shadow active:scale-95 transition-all w-full mt-4">
+            Book
+          </button>
         )}
       </div>
     </>
