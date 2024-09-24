@@ -1,6 +1,7 @@
 import mongoClientPromise from "@/connectDb/mongoClientPromise";
 import { userModel } from "@/models/userModel";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import bcrypt from "bcryptjs";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import FacebookProvider from "next-auth/providers/facebook";
@@ -11,7 +12,9 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
-  adapter: MongoDBAdapter(mongoClientPromise, {}),
+  adapter: MongoDBAdapter(mongoClientPromise, {
+    databaseName: process.env.ENVIRONMENT,
+  }),
   session: {
     strategy: "jwt",
   },
@@ -22,14 +25,18 @@ export const {
         email: {},
         password: {},
       },
+
       async authorize(credentials) {
         if (credentials == null) return null;
 
         try {
           const user = await userModel.findOne({ email: credentials.email });
-          console.log({ user });
+          console.log("user goooooot", user);
           if (user) {
-            const isMatch = user.email === credentials.email;
+            const isMatch = await bcrypt.compare(
+              credentials.password,
+              user.password
+            );
             if (isMatch) {
               return user;
             } else {

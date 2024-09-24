@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { auth } from "../../../auth";
 import logo from "../../assets/green-house-logo.png";
+import Logout from "../auth/Logout";
 const Navigation = async () => {
   const session = await auth();
+  console.log("ssss", session);
   return (
     <nav className="max-w-7xl flex mx-auto justify-between px-4 py-4 fixed top-0 w-full left-0 right-0 z-50">
       <Link className="flex justify-center items-center" href="/">
@@ -33,6 +35,9 @@ const Navigation = async () => {
                 height={40}
                 width={40}
               />
+              <span>
+                <Logout></Logout>
+              </span>
             </div>
           ) : (
             <Link

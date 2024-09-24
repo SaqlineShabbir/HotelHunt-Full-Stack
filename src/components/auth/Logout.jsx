@@ -4,9 +4,11 @@ const Logout = () => {
   return (
     <div>
       <button
-        onClick={signOut({
-          callbackUrl: "http://localhost:3000/login",
-        })}
+        onClick={() =>
+          signOut({
+            callbackUrl: "http://localhost:3000/login",
+          })
+        }
       >
         Sign Out
       </button>
