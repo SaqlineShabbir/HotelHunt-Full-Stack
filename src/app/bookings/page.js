@@ -1,8 +1,14 @@
 import PastBooking from "@/components/booking/PastBooking";
 import ProfileInfo from "@/components/booking/ProfileInfo";
 import UpcomingBooking from "@/components/booking/UpcomingBooking";
+import { redirect } from "next/navigation";
+import { auth } from "../../../auth";
 
-const page = () => {
+const page = async () => {
+  const session = await auth();
+  if (!session) {
+    redirect("/login");
+  }
   return (
     <>
       <section className="mt-[100px]">

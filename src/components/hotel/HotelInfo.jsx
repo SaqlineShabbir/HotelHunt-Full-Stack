@@ -1,3 +1,7 @@
+import Link from "next/link";
+import HotelRating from "./HotelRating";
+import HotelReviewCount from "./HotelReviewCount";
+
 export const HotelInfo = ({ fromListPage, hotel }) => {
   return (
     <>
@@ -9,11 +13,9 @@ export const HotelInfo = ({ fromListPage, hotel }) => {
         </h2>
         <p>📍 {hotel?.city}</p>
         <div className="flex gap-2 items-center my-4">
-          <div className="bg-green-400 w-[35px] h-[35px] rounded-sm text-white grid place-items-center font-bold">
-            5.3
-          </div>
-          <span className="font-medium">Very Good</span>
-          <span>232 Reviews</span>
+          <HotelRating id={hotel?._id} />
+
+          <HotelReviewCount id={hotel?._id} />
         </div>
         <div>
           <span className="border text-yellow-300 font-bold rounded p-1">
@@ -28,9 +30,12 @@ export const HotelInfo = ({ fromListPage, hotel }) => {
         </h2>
         <p className=" text-right">Per Night for 1 Rooms</p>
         {fromListPage ? (
-          <button className="bg-green-400 text-white rounded-md block  font-bold  hover:shadow active:scale-95 transition-all mt-4 px-3 py-2">
+          <Link
+            href={`/hotels/${hotel?._id}`}
+            className="bg-green-400 text-white rounded-md block  font-bold  hover:shadow active:scale-95 transition-all mt-4 px-3 py-2"
+          >
             Details
-          </button>
+          </Link>
         ) : (
           <button className="bg-green-400 px-3 py-2 rounded-md block  font-bold  hover:shadow active:scale-95 transition-all w-full mt-4">
             Book
