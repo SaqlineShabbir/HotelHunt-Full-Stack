@@ -2,7 +2,7 @@ import { bookingModel } from "@/models/bookingModel";
 import { hotelModel } from "@/models/hotelModel";
 import { ratingModel } from "@/models/ratingModel";
 import { reviewModel } from "@/models/reviewModel";
-import mongoose from "mongoose";
+import { isDateInbetween } from "@/utils/data-util";
 
 export async function getAllHotels(destination, checkin, checkout) {
   const regex = new RegExp(destination, "i");
@@ -54,8 +54,17 @@ async function findBooking(hotelId, checkin, checkout) {
   return found;
 }
 
-export async function getHotelById(hotelId) {
+export async function getHotelById(hotelId, checkin, checkout) {
   const hotel = await hotelModel.findById(hotelId).lean();
+
+  if (checkin && checkout) {
+    const found = await findBooking(hotel._id, checkin, checkout);
+    if (found) {
+      hotel["isBooked"] = true;
+    } else {
+      hotel["isBooked"] = false;
+    }
+  }
   return hotel;
 }
 
@@ -65,15 +74,7 @@ export async function getRatingsForAHotel(hotelId) {
 }
 
 export async function getAllReviewsForAHotel(hotelId) {
-  console.log("frommmm", hotelId);
-  const all = await reviewModel.find();
+  const reviews = await reviewModel.find({ hotelId: hotelId }).lean();
 
-  console.log("Type of hotelId:", typeof hotelId);
-  console.log("hotelId being queried:", hotelId);
-  const testHotelId = new mongoose.Types.ObjectId("66263526f50c2e548501f285");
-
-  const reviews = await reviewModel.find({ hotelId: testHotelId }).lean();
-  console.log("Reviews found:", reviews);
-  console.log(all);
   return reviews;
 }

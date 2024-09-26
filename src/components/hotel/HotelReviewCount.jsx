@@ -2,7 +2,6 @@ import { getAllReviewsForAHotel } from "@/queries/hotelQuery";
 import Link from "next/link";
 
 const HotelReviewCount = async ({ id }) => {
-  console.log("idddd", id);
   const reviews = await getAllReviewsForAHotel(id);
   return (
     <>
