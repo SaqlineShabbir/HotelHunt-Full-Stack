@@ -1,7 +1,44 @@
-const PaymentForm = ({ checkin, checkout, loggedInUser, hotelInfo }) => {
-  console.log("check check", checkin);
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+const PaymentForm = ({ checkin, checkout, loggedInUser, hotelInfo, cost }) => {
+  const router = useRouter();
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const formData = new FormData(e.currentTarget);
+      const hotelId = hotelInfo?._id;
+      const userId = loggedInUser?._id;
+      const checkinValue = formData.get("checkin");
+      const checkoutValue = formData.get("checkout");
+      const response = await fetch("/api/payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          hotelId,
+          userId,
+          checkin: checkinValue,
+          checkout: checkoutValue,
+        }),
+      });
+
+      if (response.status == 201) {
+        router.push("/bookings");
+      }
+    } catch (err) {
+      console.log(err);
+      setError(err.message);
+    }
+  };
+
   return (
-    <form className="my-8">
+    <form className="my-8" onSubmit={handleSubmit}>
       <div className="my-4 space-y-2">
         <label htmlFor="name" className="block">
           Name
@@ -9,8 +46,9 @@ const PaymentForm = ({ checkin, checkout, loggedInUser, hotelInfo }) => {
         <input
           type="text"
           id="name"
-          value={loggedInUser?.name}
+          value={loggedInUser?.name || ""}
           className="w-full border border-[#CCCCCC]/60 py-1 px-2 rounded-md"
+          readOnly
         />
       </div>
 
@@ -21,8 +59,9 @@ const PaymentForm = ({ checkin, checkout, loggedInUser, hotelInfo }) => {
         <input
           type="email"
           id="email"
-          value={loggedInUser?.email}
+          value={loggedInUser?.email || ""}
           className="w-full border border-[#CCCCCC]/60 py-1 px-2 rounded-md"
+          readOnly
         />
       </div>
 
@@ -72,9 +111,12 @@ const PaymentForm = ({ checkin, checkout, loggedInUser, hotelInfo }) => {
           className="w-full border border-[#CCCCCC]/60 py-1 px-2 rounded-md"
         />
       </div>
-
-      <button type="submit" className="btn-primary w-full">
-        Pay Now ($10)
+      <span className="text-red-500">{error}</span>
+      <button
+        type="submit"
+        className="bg-green-500 w-full py-2 text-white hover:bg-green-600 cursor-pointer"
+      >
+        Pay Now (${cost})
       </button>
     </form>
   );

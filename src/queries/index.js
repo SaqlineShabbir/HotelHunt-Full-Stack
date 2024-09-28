@@ -84,3 +84,16 @@ export async function getUserByEmail(email) {
   const user = await userModel.find({ email: email }).lean();
   return user[0];
 }
+export async function getBookingsByUser(userId) {
+  try {
+    // Fetch bookings from the database by userId
+    const bookings = await bookingModel.find({ userId }).lean();
+
+    // Return the bookings data
+    return bookings;
+  } catch (error) {
+    // Handle any errors that occur during the query
+    console.error("Error fetching bookings for user:", error);
+    throw new Error("Could not fetch bookings");
+  }
+}

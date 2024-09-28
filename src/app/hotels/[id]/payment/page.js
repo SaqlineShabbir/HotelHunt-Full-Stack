@@ -38,6 +38,7 @@ const page = async ({
           checkout={checkout}
           loggedInUser={loggedInUser}
           hotelInfo={hotelInfo}
+          cost={cost}
         />
       </div>
     </section>
