@@ -7,6 +7,7 @@ export const HotelInfo = ({ fromListPage, hotel, checkin, checkout }) => {
   if (checkin && checkout) {
     params = `?checkin=${checkin}&checkout=${checkout}`;
   }
+  console.log("looook", params);
   return (
     <>
       <div className={fromListPage ? "flex-1" : "flex-1 container"}>
@@ -43,7 +44,10 @@ export const HotelInfo = ({ fromListPage, hotel, checkin, checkout }) => {
             Details
           </Link>
         ) : (
-          <button
+          <Link
+            href={
+              hotel?.isBooked ? "#" : `/hotels/${hotel?._id}/payment${params}`
+            }
             className={
               hotel?.isBooked
                 ? "disabled bg-gray-500 text-white px-3 py-2 rounded"
@@ -51,7 +55,7 @@ export const HotelInfo = ({ fromListPage, hotel, checkin, checkout }) => {
             }
           >
             Book
-          </button>
+          </Link>
         )}
       </div>
     </>

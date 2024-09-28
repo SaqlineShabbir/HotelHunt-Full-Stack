@@ -3,6 +3,7 @@ import Filter from "@/components/search/Filter";
 import Search from "@/components/search/Search";
 
 const page = ({ searchParams: { destination, checkin, checkout } }) => {
+  console.log("paramsss", checkin, checkout);
   return (
     <>
       <section className=" bg-cover bg-no-repeat bg-center pt-[100px] pb-[60px]">

@@ -1,4 +1,4 @@
-import { getAllReviewsForAHotel } from "@/queries/hotelQuery";
+import { getAllReviewsForAHotel } from "@/queries";
 import Link from "next/link";
 
 const HotelReviewCount = async ({ id }) => {

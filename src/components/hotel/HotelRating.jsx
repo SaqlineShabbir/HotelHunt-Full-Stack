@@ -1,4 +1,4 @@
-import { getRatingsForAHotel } from "@/queries/hotelQuery";
+import { getRatingsForAHotel } from "@/queries";
 
 const HotelRating = async ({ id }) => {
   const ratings = await getRatingsForAHotel(id);
