@@ -11,9 +11,8 @@ const refineCategory = (category) => {
   return decodedCategory;
 };
 const page = ({
-  searchParams: { destination, checkin, checkout, category },
+  searchParams: { destination, checkin, checkout, category, sort },
 }) => {
-  console.log("paramsss", checkin, checkout);
   return (
     <>
       <section className=" bg-cover bg-no-repeat bg-center pt-[100px] pb-[60px]">
@@ -34,6 +33,7 @@ const page = ({
             checkout={checkout}
             destination={destination}
             category={refineCategory(category)}
+            sort={sort}
           />
         </div>
       </section>

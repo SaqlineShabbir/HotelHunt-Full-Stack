@@ -5,7 +5,13 @@ import { reviewModel } from "@/models/reviewModel";
 import { userModel } from "@/models/userModel";
 import { isDateInbetween } from "@/utils/data-util";
 
-export async function getAllHotels(destination, checkin, checkout, category) {
+export async function getAllHotels(
+  destination,
+  checkin,
+  checkout,
+  category,
+  sort
+) {
   const regex = new RegExp(destination, "i");
   const hotelsByDestination = await hotelModel
     .find({ city: { $regex: regex } })
@@ -26,6 +32,13 @@ export async function getAllHotels(destination, checkin, checkout, category) {
     allHotels = allHotels.filter((hotel) => {
       return categoriesToMatch.includes(hotel.propertyCategory.toString());
     });
+  }
+
+  // Sort based on the user's selection: highRate or lowRate
+  if (sort === "highToLow") {
+    allHotels.sort((a, b) => b.highRate - a.highRate);
+  } else if (sort === "lowToHigh") {
+    allHotels.sort((a, b) => a.lowRate - b.lowRate);
   }
 
   if (checkin && checkout) {

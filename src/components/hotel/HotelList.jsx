@@ -2,12 +2,19 @@ import { getAllHotels } from "@/queries";
 import HotelCard from "./HotelCard";
 import NoHotels from "./NoHotels";
 
-const HotelList = async ({ checkin, checkout, destination, category }) => {
+const HotelList = async ({
+  checkin,
+  checkout,
+  destination,
+  category,
+  sort,
+}) => {
   const allHotels = await getAllHotels(
     destination,
     checkin,
     checkout,
-    category
+    category,
+    sort
   );
 
   return (
