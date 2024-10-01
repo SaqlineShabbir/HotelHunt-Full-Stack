@@ -1,8 +1,18 @@
 import Filter from "@/components/filter/Filter";
 import HotelList from "@/components/hotel/HotelList";
 import Search from "@/components/search/Search";
+const refineCategory = (category) => {
+  const decodedCategory = decodeURI(category);
 
-const page = ({ searchParams: { destination, checkin, checkout } }) => {
+  if (decodedCategory === "undefined") {
+    return "";
+  }
+
+  return decodedCategory;
+};
+const page = ({
+  searchParams: { destination, checkin, checkout, category },
+}) => {
   console.log("paramsss", checkin, checkout);
   return (
     <>
@@ -23,6 +33,7 @@ const page = ({ searchParams: { destination, checkin, checkout } }) => {
             checkin={checkin}
             checkout={checkout}
             destination={destination}
+            category={refineCategory(category)}
           />
         </div>
       </section>
