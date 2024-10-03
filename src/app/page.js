@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <section className="bg-[#F6F3E9] h-screen max-h-screen relative grid place-items-center bg-[url('../assets/frank.jpg')] bg-cover bg-no-repeat bg-center">
       <div className="max-w-7xl mx-auto w-full px-4 items-center pb-12 ">
-        <div className="col-span-7">
+        <div className="col-span-7 pt-[100px] lg:pt-0">
           <h1 className="font-bold text-3xl lg:text-5xl my-4 text-center lg:w-8/12 mx-auto">
             Hotels for unforgettable moments, brimming with deep emotions
           </h1>

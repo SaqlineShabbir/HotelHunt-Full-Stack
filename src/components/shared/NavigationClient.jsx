@@ -28,7 +28,7 @@ const NavigationClient = ({ session }) => {
   }, []);
 
   return (
-    <nav className="max-w-7xl flex items-center mx-auto justify-between px-4 py-4 fixed top-0 w-full left-0 right-0 z-50 bg-white lg:bg-transparent">
+    <nav className="max-w-7xl flex items-center mx-auto justify-between px-4 py-4 fixed top-0 w-full left-0 right-0 z-50  lg:bg-transparent">
       <Link className="flex items-center gap-2" href="/">
         <Image src={logo} alt="Stay Swift Logo" width={50} height={50} />
         <span className="font-bold text-lg">HOTELHUNT</span>
@@ -97,7 +97,7 @@ const NavigationClient = ({ session }) => {
               {isProfileMenuOpen && (
                 <div className="absolute right-0 top-full mt-2 p-10 w-44 bg-white border rounded-md shadow-lg z-10">
                   <Link
-                    href="#"
+                    href="/profile"
                     className="block px-4 py-2 border-b border-green-400 text-gray-700 hover:bg-gray-100"
                   >
                     Profile
@@ -121,7 +121,7 @@ const NavigationClient = ({ session }) => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <ul className="absolute top-16 left-0 right-0 bg-white shadow-md md:hidden flex flex-col items-center gap-4 py-4">
+        <ul className="absolute top-16 left-0 right-0 bg-gray-200 blur-bg shadow-md md:hidden flex flex-col items-center gap-4 py-4">
           <li>
             <Link href="#">Recommended Places</Link>
           </li>
