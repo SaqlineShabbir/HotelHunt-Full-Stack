@@ -7,7 +7,7 @@ export const HotelInfo = ({ fromListPage, hotel, checkin, checkout }) => {
   if (checkin && checkout) {
     params = `?checkin=${checkin}&checkout=${checkout}`;
   }
-  console.log("looook", params);
+
   return (
     <>
       <div className={fromListPage ? "flex-1" : "flex-1 container"}>

@@ -49,13 +49,13 @@ const Search = ({ fromList, destination, checkin, checkout }) => {
 
   return (
     <>
-      <div className="lg:max-h-[250px] mt-6">
-        <div className="bg-white w-full h-full py-10 lg:py-12 px-6 lg:px-8 rounded-xl border border-black/10 shadow-lg lg:flex items-center [&>*]:flex-1 [&>*]:px-4 [&>div>span]:mb-3 space-y-5 lg:space-y-0">
-          <div>
+      <div className="mt-6 lg:max-h-[250px]">
+        <div className="bg-white w-full h-full py-10 lg:py-12 px-4 lg:px-8 rounded-xl border border-black/10 shadow-lg flex flex-col lg:flex-row items-center space-y-5 lg:space-y-0">
+          <div className="flex-1">
             <span className="font-bold">Destination</span>
             <h4 className="mt-2">
               <select
-                className="w-full px-4 py-2 rounded-md border border-black/20 bg-transparent"
+                className="w-[170px] lg:w-full h-12 px-4 rounded-md border border-black/20 bg-transparent"
                 name="destination"
                 id="destination"
                 defaultValue={searchTerm?.destination}
@@ -70,11 +70,11 @@ const Search = ({ fromList, destination, checkin, checkout }) => {
             </h4>
           </div>
 
-          <div>
+          <div className="flex-1">
             <span className="font-bold">Check in</span>
             <h4 className="mt-2">
               <input
-                className="w-full px-4 py-2 rounded-md border border-black/20 bg-transparent"
+                className="w-full h-12 px-4 rounded-md border border-black/20 bg-transparent"
                 type="date"
                 name="checkin"
                 id="checkin"
@@ -84,11 +84,11 @@ const Search = ({ fromList, destination, checkin, checkout }) => {
             </h4>
           </div>
 
-          <div>
+          <div className="flex-1">
             <span className="font-bold">Checkout</span>
             <h4 className="mt-2">
               <input
-                className="w-full px-4 py-2 rounded-md border border-black/20 bg-transparent"
+                className="w-full h-12 px-4 rounded-md border border-black/20 bg-transparent"
                 type="date"
                 name="checkout"
                 id="checkout"
@@ -103,7 +103,7 @@ const Search = ({ fromList, destination, checkin, checkout }) => {
       <button
         onClick={doSearch}
         disabled={!allowSearch}
-        className="bg-green-300 disabled:bg-gray-500 px-8 py-3 rounded-md block mx-auto text-white font-bold -translate-y-1/2 shadow-lg hover:shadow-primary/50 active:scale-95 transition-all"
+        className="bg-green-300 disabled:bg-gray-500 px-8 py-3 rounded-md block mx-auto text-white font-bold my-4 shadow-lg hover:shadow-primary/50 active:scale-95 transition-all"
       >
         Search🔍️
       </button>
