@@ -2,6 +2,7 @@
 import { login } from "@/app/actions";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const LoginForm = () => {
   const [error, setError] = useState("");
@@ -15,17 +16,19 @@ const LoginForm = () => {
       const response = await login(formData);
       console.log(response);
       if (!!response.error) {
-        setError(response.error);
+        toast.error(response.error.message);
       } else {
+        toast.success("Login successful");
         router.push("/bookings");
       }
     } catch (err) {
-      setError(err.message);
+      toast.error(err.message);
     }
   }
 
   return (
     <>
+      <Toaster />
       <form className="flex flex-col my-6" onSubmit={onSubmit}>
         <div className="flex flex-col gap-2 my-2">
           <label htmlFor="email">Email Address</label>

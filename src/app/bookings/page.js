@@ -16,12 +16,12 @@ const page = async () => {
   const bookings = await getBookingsByUser(loggedInUser?._id);
 
   console.log(bookings);
-  const pastBookings = bookings.filter((booking) => {
-    return new Date().getTime() > new Date(booking.checkin).getTime();
+  const pastBookings = bookings?.filter((booking) => {
+    return new Date().getTime() > new Date(booking?.checkin).getTime();
   });
 
-  const upcomingBookings = bookings.filter((booking) => {
-    return new Date().getTime() < new Date(booking.checkin).getTime();
+  const upcomingBookings = bookings?.filter((booking) => {
+    return new Date().getTime() < new Date(booking?.checkin).getTime();
   });
 
   return (

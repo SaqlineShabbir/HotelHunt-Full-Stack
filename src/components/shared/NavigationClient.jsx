@@ -28,7 +28,7 @@ const NavigationClient = ({ session }) => {
   }, []);
 
   return (
-    <nav className="max-w-7xl flex items-center mx-auto justify-between px-4 py-4 fixed top-0 w-full left-0 right-0 z-50  lg:bg-transparent">
+    <nav className=" flex items-center mx-auto justify-between px-4 lg:px-10 py-4 fixed top-0 w-full left-0 right-0 z-50  lg:bg-transparent">
       <Link className="flex items-center gap-2" href="/">
         <Image src={logo} alt="Stay Swift Logo" width={50} height={50} />
         <span className="font-bold text-lg">HOTELHUNT</span>

@@ -117,3 +117,12 @@ export async function getBookingsByUser(userId) {
     throw new Error("Could not fetch bookings");
   }
 }
+
+export async function deleteBooking(id) {
+  try {
+    const deleteBooking = await bookingModel.deleteOne({ id });
+    return deleteBooking;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
