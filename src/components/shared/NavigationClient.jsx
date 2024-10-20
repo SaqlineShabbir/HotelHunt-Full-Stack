@@ -66,7 +66,7 @@ const NavigationClient = ({ session }) => {
           <Link href="/hotels">Hotels</Link>
         </li>
         <li>
-          <Link href="#">Contact Us</Link>
+          <Link href="/contact-us">Contact Us</Link>
         </li>
         <li>
           <Link href="/bookings">Bookings</Link>
