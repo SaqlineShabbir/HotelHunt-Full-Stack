@@ -1,3 +1,4 @@
+import Footer from "@/components/shared/Footer";
 import Navigation from "@/components/shared/Navigation";
 import { dbConnect } from "@/connectDb/DbConnect";
 import localFont from "next/font/local";
@@ -29,6 +30,7 @@ export default async function RootLayout({ children }) {
         <Navigation />
 
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
