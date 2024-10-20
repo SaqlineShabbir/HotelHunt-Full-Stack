@@ -91,6 +91,7 @@ export async function getHotelById(hotelId, checkin, checkout) {
 
 export async function getRatingsForAHotel(hotelId) {
   const ratings = await ratingModel.find({ hotelId: hotelId }).lean();
+  console.log("rrrr", ratings);
   return ratings;
 }
 
@@ -115,14 +116,5 @@ export async function getBookingsByUser(userId) {
     // Handle any errors that occur during the query
     console.error("Error fetching bookings for user:", error);
     throw new Error("Could not fetch bookings");
-  }
-}
-
-export async function deleteBooking(id) {
-  try {
-    const deleteBooking = await bookingModel.deleteOne({ id });
-    return deleteBooking;
-  } catch (error) {
-    throw new Error(error.message);
   }
 }

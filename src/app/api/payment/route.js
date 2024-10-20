@@ -26,3 +26,26 @@ export const POST = async (request) => {
     });
   }
 };
+
+export const GET = async (request) => {
+  try {
+    const userId = request.nextUrl.searchParams.get("userId");
+
+    if (!userId) {
+      return NextResponse.json(
+        { error: "userId is required" },
+        { status: 400 }
+      );
+    }
+
+    const bookings = await bookingModel
+      .find({ userId })
+      .populate("hotelId")
+      .lean();
+    console.log(bookings);
+    return NextResponse.json({ bookings }, { status: 200 });
+  } catch (error) {
+    console.error("Error fetching bookings:", error.message);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+};

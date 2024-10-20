@@ -46,7 +46,7 @@ const FilterByCategory = () => {
     <div>
       <h3 className="font-bold text-lg">Star Category</h3>
       <form action="" className="flex flex-col gap-2 mt-2">
-        <label for="fiveStar">
+        <label htmlFor="fiveStar">
           <input
             onChange={handleChange}
             className="mx-1"
@@ -58,7 +58,7 @@ const FilterByCategory = () => {
           5 Star
         </label>
 
-        <label for="fourStar">
+        <label htmlFor="fourStar">
           <input
             onChange={handleChange}
             className="mx-1"
@@ -70,7 +70,7 @@ const FilterByCategory = () => {
           4 Star
         </label>
 
-        <label for="threeStar">
+        <label htmlFor="threeStar">
           <input
             onChange={handleChange}
             className="mx-1"
@@ -82,7 +82,7 @@ const FilterByCategory = () => {
           3 Star
         </label>
 
-        <label for="twoStar">
+        <label htmlFor="twoStar">
           <input
             onChange={handleChange}
             className="mx-1"
@@ -94,7 +94,7 @@ const FilterByCategory = () => {
           2 Star
         </label>
 
-        <label for="oneStar">
+        <label htmlFor="oneStar">
           <input
             onChange={handleChange}
             className="mx-1"

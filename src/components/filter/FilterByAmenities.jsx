@@ -3,12 +3,12 @@ const FilterByAmenities = () => {
     <div>
       <h3 className="font-bold text-lg">Amenities</h3>
       <form action="" className="flex flex-col gap-2 mt-2">
-        <label for="wifi">
+        <label htmlFor="wifi">
           <input className="mx-1" type="checkbox" name="wifi" id="wifi" />
           Wi-fi
         </label>
 
-        <label for="swimmingPool">
+        <label htmlFor="swimmingPool">
           <input
             className="mx-1"
             type="checkbox"
