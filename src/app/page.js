@@ -4,7 +4,7 @@ import { BiDish } from "react-icons/bi";
 import { FaCarSide } from "react-icons/fa";
 import { GiCctvCamera } from "react-icons/gi";
 import { TbAirConditioning } from "react-icons/tb";
-export default function Home() {
+const Home = () => {
   return (
     <>
       <section className="bg-[#F6F3E9] relative h-screen max-h-screen grid place-items-center bg-[url('../assets/frank.jpg')] bg-cover bg-no-repeat bg-center">
@@ -45,4 +45,5 @@ export default function Home() {
       </section>
     </>
   );
-}
+};
+export default Home;
