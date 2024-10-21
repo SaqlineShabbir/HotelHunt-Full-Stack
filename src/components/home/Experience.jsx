@@ -17,7 +17,7 @@ const Experience = () => {
             commodi id officiis itaque esse adipisci, necessitatibus asperiores,
             illo odio.
           </p>
-          <button className="bg-green-300 py-3 w-1/2 px-10 rounded font-bold">
+          <button className="bg-green-300 py-3 lg:w-1/2 px-10 rounded font-bold">
             More About Us
           </button>
         </div>
@@ -31,7 +31,7 @@ const Experience = () => {
             commodi id officiis itaque esse adipisci, necessitatibus asperiores,
             illo odio.
           </p>
-          <button className="bg-green-300 py-3 w-1/2 px-10 rounded font-bold ">
+          <button className="bg-green-300 py-3 lg:w-1/2 px-10 rounded font-bold ">
             Book Our Hotels
           </button>
         </div>

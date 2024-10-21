@@ -1,3 +1,4 @@
+import Activities from "@/components/home/BestDeal";
 import Experience from "@/components/home/Experience";
 import Search from "@/components/search/Search";
 import { Suspense } from "react";
@@ -44,6 +45,9 @@ const Home = () => {
       </section>
       <section className="bg-green-50 mt-5">
         <Experience />
+      </section>
+      <section className="bg-green-50">
+        <Activities />
       </section>
     </Suspense>
   );
