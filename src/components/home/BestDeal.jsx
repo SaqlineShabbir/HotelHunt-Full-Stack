@@ -3,7 +3,7 @@ import img from "../../assets/frank.jpg"; // Replace this with your actual image
 
 const Activities = () => {
   return (
-    <div className="container mx-auto py-10  ">
+    <div className="container mx-auto py-10  lg:px-[100px]">
       <h2 className="text-center text-3xl font-bold mb-4">
         Explore the Wonders of the Surroundings
       </h2>
@@ -11,7 +11,7 @@ const Activities = () => {
         From the tranquility of nature to exciting adventures, here are some of
         the nearby activities you can enjoy:
       </p>
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-6">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-3">
         {/* Card 1 */}
         <div className="relative group p-4">
           <div className="overflow-hidden rounded-lg shadow-lg">
@@ -21,9 +21,9 @@ const Activities = () => {
                 alt="Visits to National Parks"
                 width={600}
                 height={800}
-                className="h-[600px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-[500px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute top-2 right-2 p-2 bg-white text-orange-600 font-bold text-lg shadow-md">
+              <div className="absolute top-2 right-2 p-1 bg-white text-green-400 font-bold text-lg shadow-md">
                 €180 / Once / Per Guest
               </div>
               {/* Title with transition */}
@@ -50,9 +50,9 @@ const Activities = () => {
                 alt="Camping Adventures"
                 width={400}
                 height={800}
-                className="w-full h-[600px] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-[500px] object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute top-2 right-2 p-2 bg-white text-orange-600 font-bold text-lg shadow-md">
+              <div className="absolute top-2 right-2 p-1 bg-white text-green-400 font-bold text-lg shadow-md">
                 €240 / Once / Per Guest
               </div>
               {/* Title with transition */}
@@ -79,9 +79,9 @@ const Activities = () => {
                 alt="Stargazing"
                 width={600}
                 height={900}
-                className="w-full h-[600px] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-[500px] object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute top-2 right-2 p-2 rounded bg-white text-orange-600 font-bold text-lg shadow-md">
+              <div className="absolute top-2 right-2 p-1 rounded bg-white text-green-400 font-bold text-lg shadow-md">
                 €120 / Once / Per Guest
               </div>
               {/* Title with transition */}

@@ -18,14 +18,14 @@ const Footer = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundBlendMode: "overlay",
-        backgroundColor: "rgba(0, 0, 0, 0.8)", // Adjust the opacity here
+        backgroundColor: "rgba(40, 30, 19, 0.9)", // Adjust the opacity here
       }}
     >
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-8 lg:px-[150px] lg:py-[100px] px-5 py-5">
         {/* Left Section */}
         <div className="">
           <h2 className="text-3xl font-bold mb-10">HotelHunt</h2>
-          <p className="text-gray-400 mb-6 leading-relaxed">
+          <p className="text-gray-100 mb-6 leading-relaxed">
             Sequi dolores ratione eos eveniet provident soluta. Omnis nesciunt
             sit eos at, eius voluptatum rem corporis. Doloremque labore
             assumenda explicabo velit illo, soluta, inventore hic.
@@ -50,9 +50,9 @@ const Footer = () => {
         </div>
 
         {/* Center Menu Section */}
-        <div className="pl-10">
+        <div className="lg:pl-10">
           <h3 className="text-xl font-semibold mb-10">Menu</h3>
-          <ul className="text-gray-400 space-y-5">
+          <ul className="text-gray-100 space-y-5">
             <li>
               <Link href="#" className="hover:text-white">
                 Home
@@ -84,7 +84,7 @@ const Footer = () => {
         {/* Meet Kinsley Section */}
         <div>
           <h3 className="text-xl font-semibold mb-10">Meet HotelHunt</h3>
-          <ul className="text-gray-400 space-y-5">
+          <ul className="text-gray-100 space-y-5">
             <li>
               <Link href="#" className="hover:text-white">
                 FAQ
